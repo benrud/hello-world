@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todd Benrud | Admin Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Header with Navigation -->
+    <header>
+        <div class="header-container">
+            <div class="logo">Todd <span>Benrud</span></div>
+            <div class="hamburger">
+                <div></div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="media.html">Media</a></li>
+                    <li><a href="future.html">Future</a></li>
+                    <li><a href="hobbies.html">Hobbies</a></li>
+                    <li><a href="education.html">Education</a></li>
+                    <li><a href="admin.html">Admin</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Admin Dashboard -->
+        <section class="section">
+            <div class="container">
+                <h1 class="section-title">Admin Dashboard</h1>
+                <p class="text-center">Manage contact form submissions and view analytics.</p>
+                
+                <!-- Login Section -->
+                <div id="adminLogin" class="admin-login">
+                    <h2>Admin Login</h2>
+                    <div id="loginError" class="admin-error"></div>
+                    <form id="loginForm">
+                        <div class="form-group">
+                            <label for="adminPassword">Password</label>
+                            <input type="password" id="adminPassword" name="password" required placeholder="Enter admin password">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </form>
+                </div>
+                
+                <!-- Dashboard Section -->
+                <div id="adminDashboard" style="display: none;">
+                    <div class="admin-container">
+                        <!-- Dashboard Header -->
+                        <div class="admin-header">
+                            <h2>Dashboard</h2>
+                            <button id="logoutBtn" class="btn btn-outline">Logout</button>
+                        </div>
+                        
+                        <!-- Summary Cards -->
+                        <div id="summaryCards" class="summary-cards">
+                            <!-- Cards will be populated by JavaScript -->
+                        </div>
+                        
+                        <!-- Chart -->
+                        <div id="chartContainer" class="chart-container">
+                            <h2>Messages by Reason for Contact</h2>
+                            <canvas id="messagesChart"></canvas>
+                        </div>
+                        
+                        <!-- Messages Filter -->
+                        <div class="messages-filter">
+                            <button id="filterAll" class="filter-btn active">All Messages</button>
+                            <button id="filterNew" class="filter-btn">New Messages</button>
+                            <button id="filterReplied" class="filter-btn">Replied Messages</button>
+                        </div>
+                        
+                        <!-- Messages Table -->
+                        <div style="overflow-x: auto;">
+                            <table id="messagesTable" class="messages-table">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Reason</th>
+                                        <th>Message</th>
+                                        <th>Date</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="messagesTableBody">
+                                    <!-- Messages will be populated by JavaScript -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p class="copyright">&copy; 2024 Todd Benrud. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Gallery Modal -->
+    <div id="galleryModal" class="modal">
+        <div class="modal-content" id="modalContent"></div>
+        <button id="modalClose" class="modal-close">&times;</button>
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    <script src="admin.js"></script>
+</body>
+</html>
